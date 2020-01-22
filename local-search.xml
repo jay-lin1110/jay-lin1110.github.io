@@ -5,16 +5,18 @@
   
   <entry>
     <title>这是一条用于测试的肠粉</title>
-    <link href="/2019/10/10/hello-world/"/>
-    <url>/2019/10/10/hello-world/</url>
+    <link href="/2018/06/27/hello-world/"/>
+    <url>/2018/06/27/hello-world/</url>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;</code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<p>这是一条神奇的肠粉，因为它具有特别的纪念意义。<br>一来这是纪念本人和小铭同学一起吃过的正宗早餐。<br>二来这是本博客测试的第一条肠粉。</p><h2 id="肠粉的故事"><a href="#肠粉的故事" class="headerlink" title="肠粉的故事"></a>肠粉的故事</h2><p><img src="/img/boys.jpeg" srcset="/img/loading.gif" alt=""><br>话说那是一个阳光灿烂的早晨。<br>男孩们约好一起恰早餐。<br>正苦恼吃啥玩意的时候。<br>一阵风带来了米浆的清香。<br>Boys 当机立断，决定选择肠粉。</p><h2 id="肠粉起源"><a href="#肠粉起源" class="headerlink" title="肠粉起源"></a>肠粉起源</h2><p>肠粉按地理（口味）区分较出名的有广州的西关肠粉，普宁肠粉，揭阳小巷里的潮汕肠粉、潮州潮汕肠粉，云浮的河口肠粉，梅州的客家肠粉，郁南的都城肠粉、澄海肠粉、饶平肠粉、惠来肠粉等。<br>广州的肠粉呈现透明状，口感比较 q 弹，一般酱料是酱油及其他酱制成，口感较甜，配菜多为生菜。潮州的肠粉呈现白色，口感香糯，酱料多为耗油花生酱，配菜各式各样。<br>潮汕肠粉各地有各地特色，比如汕头市澄海区的肠粉，酱汁比较多，酱汁的味道也比较淡，里面最常见菜是豆芽，生菜，而且还有肉末香菇鲜虾等。普宁的潮汕肠粉常见的是生蚝，香菇，白萝卜干干鱿鱼，鸡蛋，生菜，西洋菜，空心菜，肉沫，鲍鱼等。</p>]]></content>
     
     
     
     <tags>
       
-      <tag>日常</tag>
+      <tag>food</tag>
+      
+      <tag>life</tag>
       
     </tags>
     
