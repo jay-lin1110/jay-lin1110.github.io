@@ -359,14 +359,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    35
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    6 Min
                 </div>
                 
 				
@@ -383,7 +383,231 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>自定义封装实现 vue2 框架，实现 MVVM 功能，包括模板编译、指令解析和数据（双向）绑定的功能。</p>
+<h1 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>MVVM 分别指 View，Model，View-Model，View 通过 View-Model 的 DOM Listeners 将事件绑定到 Model 上，而 Model 则通过 Data Bindings 来管理 View 中的数据，View-Model 从中起到一个连接桥的作用。</p>
+<p>在 MVVM 中 View 和 Model 是不可以直接进行通信的，它们之间存在这 ViewModel 这个中介充当着观察者的角色。当用户操作 View，ViewModel 感知到变化，然后通知 Model 发生相应改变，反之亦然。ViewModel 向上与视图层 View 进行双向数据绑定，向下与 Model 通过接口请求进行数据交互，起到承上启下的作用。</p>
+<p><img src="/img/mvvm.jpg" alt=""></p>
+<h2 id="概念详解"><a href="#概念详解" class="headerlink" title="概念详解"></a>概念详解</h2><ul>
+<li>M——Model 层（数据模型 | 状态）</li>
+</ul>
+<p>数据模型与持久化抽象模型。数据模型很好理解，就是从服务器拉回来的 JSON 数据。而持久化抽象模型暂时放在 Model 层，是因为 MVVM 诞生之初就没有对这块进行很细致的描述。按照经验，我们通常把数据库、文件操作封装成 Model，并对外提供操作接口。</p>
+<ul>
+<li>V——View 层（视图层）</li>
+</ul>
+<p>视图展示。包含 UIView 以及 UIViewController，View 层是可以持有 ViewModel 的。</p>
+<ul>
+<li>VM——ViewModel（视图适配）</li>
+</ul>
+<p>视图适配器。暴露属性与 View 元素显示内容或者元素状态一一对应。一般情况下 ViewModel 暴露的属性建议是 readOnly 的，至于为什么，我们在实战中会去解释。还有一点，ViewModel 层是可以持有 Model 的。ViewModel 类似中转站(Value Converter)，负责转换 Model 中的数据对象，使得数据变得更加易于管理和使用。MVVM 本质就是基于操作数据来操作视图进而操作 DOM，借助于 MVVM 无需直接操作 DOM，开发者只需完成包含声明绑定的视图模板，编写 ViewModel 中有业务，使得 View 完全实现自动化。</p>
+<h2 id="与-MVC-区别"><a href="#与-MVC-区别" class="headerlink" title="与 MVC 区别"></a>与 MVC 区别</h2><ol>
+<li>实现了<strong>数据</strong>与<strong>视图</strong>的分离</li>
+<li>解耦了 DOM 操作</li>
+</ol>
+<p>通过<strong>数据</strong>来驱动<strong>视图</strong>，开发者只需要关心数据变化，DOM 操作被封装了。</p>
+<h2 id="实现原理-（功能）"><a href="#实现原理-（功能）" class="headerlink" title="实现原理 （功能）"></a>实现原理 （功能）</h2><ul>
+<li>响应式数据</li>
+</ul>
+<p>监听 data 属性的变化，在 vue 中，依赖于 ES5 的一个方法——<code>Object.defineProperty ()</code>来实现<strong>数据劫持</strong></p>
+<ul>
+<li>模板编译</li>
+</ul>
+<p>这里主要实现了一般指令、事件指令和插值表达式的编译解析</p>
+<ul>
+<li>观察者模式</li>
+</ul>
+<p>使用了发布-订阅模式来实现数据驱动视图和数据（双向）绑定</p>
+<p><img src="/img/vue-mvvm.jpg" alt=""></p>
+<h2 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h2><p>自定义封装实现<a href="https://gitee.com/jaylin1011/vue2-mvvm" target="_blank" rel="noopener">Vue2</a>框架，实现 MVVM 功能，包括模板编译、指令解析和数据（双向）绑定的功能。</p>
+<h3 id="Vue2"><a href="#Vue2" class="headerlink" title="Vue2"></a>Vue2</h3><p>Vue2 类是核心类之一，主要实现了 MVVM 初始化和数据代理的功能</p>
+<pre><code>class Vue2 {
+  constructor(options) {
+    const { el, data, computed, methods } = options
+    this.$el = el
+    this.$data = data
+    if (this.$el) {
+      new Observer(this.$data)
+      this.compileComputed(this.$data, computed)
+      this.compileMethods(methods)
+      // 数据代理vm.$data.xxx =&gt; vm.xxx
+      this._proxy(this.$data)
 
+      new Compile(this.$el, this)
+    }
+  }
+  compileComputed(data, computed) {
+    Object.keys(computed).forEach(key =&gt; {
+      Object.defineProperty(data, key, {
+        get: () =&gt; computed[key].call(this)
+      })
+    })
+  }
+  compileMethods(methods) {
+    Object.keys(methods).forEach(key =&gt; {
+      Object.defineProperty(this, key, {
+        get: () =&gt; methods[key]
+      })
+    })
+  }
+  _proxy(data) {
+    Object.keys(data).forEach(key =&gt; {
+      Object.defineProperty(this, key, {
+        get() {
+          return data[key]
+        },
+        set(newValue) {
+          data[key] = newValue
+        }
+      })
+    })
+  }
+}</code></pre><h3 id="Compile"><a href="#Compile" class="headerlink" title="Compile"></a>Compile</h3><p>Complile 类是核心类之一，将当前页面的所有元素节点碎片化放入内存中，编译元素节点和文本节点，解析各种相关指令，将编译完成的文档碎片从内存中取出放回页面</p>
+<pre><code>class Compile {
+  constructor(el, vm) {
+    this.el = this.isElementNode(el) ? el : document.querySelector(el)
+    this.vm = vm
+    const fragment = this.nodeToFragment(this.el)
+    this.compile(fragment)
+    this.el.appendChild(fragment)
+  }
+  isElementNode(node) {
+    return node.nodeType === 1
+  }
+  isTextNode(node) {
+    return node.nodeType === 3
+  }
+  isDirective(attrName) {
+    return attrName.startsWith(&#39;v-&#39;)
+  }
+  isEventDirective(attrName) {
+    return attrName.startsWith(&#39;@&#39;)
+  }
+  isMustache(content) {
+    // return content.includes(&#39;{{&#39;)
+    const reg = /\{\{(.+?)\}\}/
+    return reg.test(content)
+  }
+  nodeToFragment(node) {
+    const fragment = document.createDocumentFragment()
+    let firstChild
+    // eslint-disable-next-line no-cond-assign
+    while (firstChild = node.firstChild) {
+      fragment.appendChild(firstChild)
+    }
+    return fragment
+  }
+  compile(fragment) {
+    // 当前模板的第一层子节点
+    const childNodes = fragment.childNodes;
+    [...childNodes].forEach(child =&gt; {
+      if (this.isElementNode(child)) {
+        this.compileElement(child)
+        if (child.childNodes &amp;&amp; child.childNodes.length) {
+          this.compile(child)
+        }
+      } else {
+        this.compileText(child)
+      }
+    })
+  }
+  compileElement(node) {
+    const attributes = node.attributes;
+    [...attributes].forEach(attr =&gt; {
+      // 根据属性获取属性名和属性值
+      // v-model = &#39;daisy.name&#39; =&gt; {name: &#39;v-model&#39;, value: &#39;daisy.name&#39;
+      const { name, value: exp } = attr
+      if (this.isDirective(name)) {
+        // 根据属性名字截取指令名字
+        // v-model =&gt; [&#39;v&#39;, &#39;model&#39;]
+        const [, directive] = name.split(&#39;-&#39;)
+        // 根据指令名字截取事件名字
+        // on:click =&gt; [&#39;on&#39;, &#39;click&#39;]
+        const [directiveName, eventName] = directive.split(&#39;:&#39;)
+        CompileUtils[directiveName](node, exp, this.vm, eventName)
+        // 指令编译完成后删除标签的指令属性
+        node.removeAttribute(`v-${directive}`)
+      } else if (this.isEventDirective(name)) {
+        const [, eventName] = name.split(&#39;@&#39;)
+        CompileUtils[&#39;on&#39;](node, exp, this.vm, eventName)
+      }
+    })
+  }
+  compileText(node) {
+    const content = node.textContent
+    if (this.isMustache(content)) {
+      CompileUtils[&#39;mustache&#39;](node, content, this.vm)
+    }
+  }
+}</code></pre><h3 id="Observer"><a href="#Observer" class="headerlink" title="Observer"></a>Observer</h3><p>Observer 类是核心类之一，通过递归的方式和<code>Object.defineProperty ()</code>方法将数据响应式化，实现数据的深层劫持，监听数据的属性（此处并没有通过函数拦截的方式数组类型数据进行额外的处理）</p>
+<pre><code>class Observer {
+  constructor(data) {
+    this.observer(data)
+  }
+  isObject(value) {
+    return !!value &amp;&amp; typeof value === &#39;object&#39;
+  }
+  observer(data) {
+    if (this.isObject(data)) {
+      Object.keys(data).forEach(key =&gt; this.defineReactive(data, key, data[key]))
+    }
+  }
+  defineReactive(target, key, value) {
+    // 递归劫持嵌套对象
+    this.observer(value)
+    const dep = new Dep()
+    Object.defineProperty(target, key, {
+      enumerable: true,
+      configurable: false,
+      get() {
+        Dep.target &amp;&amp; dep.addSub(Dep.target)
+        return value
+      },
+      set: (newValue) =&gt; {
+        if (newValue !== value) {
+          value = newValue
+          // 赋值为新对象，继续递归劫持
+          this.observer(value)
+          dep.notify()
+        }
+      }
+    })
+  }
+}</code></pre><h3 id="Watcher"><a href="#Watcher" class="headerlink" title="Watcher"></a>Watcher</h3><p>Watcher 类进行依赖收集</p>
+<pre><code>class Watcher {
+  constructor(vm, exp, cb) {
+    this.vm = vm
+    this.exp = exp
+    this.cb = cb
+    // 存放老值
+    this.oldValue = this.getOldValue()
+  }
+  getOldValue() {
+    Dep.target = this
+    const value = CompileUtils.getValue(this.vm, this.exp)
+    Dep.target = null
+    return value
+  }
+
+  update() {
+    const newValue = CompileUtils.getValue(this.vm, this.exp)
+    if (newValue !== this.oldValue) {
+      this.cb(newValue)
+    }
+  }
+}</code></pre><p>Dep</p>
+<p>Dep 类当数据更新时进行派发更新</p>
+<pre><code>class Dep {
+  constructor() {
+    // 存放所有watcher
+    this.subs = []
+  }
+  // 订阅，添加watcher
+  addSub(watcher) {
+    this.subs.push(watcher)
+  }
+  // 发布
+  notify() {
+    this.subs.forEach(watcher =&gt; watcher.update())
+  }
+}</code></pre>
             </div>
             <hr/>
 
