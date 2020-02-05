@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="zh-CN">
 
 
 <head>
@@ -64,7 +64,7 @@
       
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
-      <span>Tags</span>
+      <span>标签</span>
     </a>
     
   </li>
@@ -75,7 +75,7 @@
       
       <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
       
-      <span>Categories</span>
+      <span>分类</span>
     </a>
     
   </li>
@@ -86,7 +86,7 @@
       
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
-      <span>Archives</span>
+      <span>归档</span>
     </a>
     
   </li>
@@ -104,7 +104,7 @@
   
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
-      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
     </a>
   </li>
 </ul>
@@ -146,7 +146,7 @@
               
                 <i class="fa-fw fas fa-tags"></i>
                 
-                    Tags
+                    标签
             </a>
             
         </li>
@@ -157,7 +157,7 @@
               
                 <i class="fa-fw fas fa-bookmark"></i>
                 
-                    Categories
+                    分类
             </a>
             
         </li>
@@ -168,7 +168,7 @@
               
                 <i class="fa-fw fas fa-archive"></i>
                 
-                    Archives
+                    归档
             </a>
             
         </li>
@@ -294,7 +294,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/img/callback-hell.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/img/callback-hell.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -349,7 +349,7 @@
             <div class="post-info">
                 
                 <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
                     2018-06-27
                 </div>
                 
@@ -358,21 +358,21 @@
 
                 
                 <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
                     2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
-                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    8 Min
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    8 分
                 </div>
                 
 				
                 
                     <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
                         <span id="busuanzi_value_page_pv"></span>
                     </div>
 				
@@ -383,7 +383,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>基于 <a href="https://promisesaplus.com/" target="_blank" rel="noopener">Promise/A+规范</a>规范自定义封装一个 <a href="https://github.com/jaylin1011/promises-aplus" target="_blank" rel="noopener">PromiseA 类</a>，实现 ECMAScript2015 中 <code>Promise</code> 的基本功能，<a href="https://gitee.com/jaylin1011/promises-aplus" target="_blank" rel="noopener">PromiseA 类</a>实现核心<code>then</code>方法，同时包括实例方法<code>catch</code>和静态方法<code>all</code>,<code>race</code>，<code>resolve</code>,<code>reject</code>等。</p>
-<h1 id="Promises-A"><a href="#Promises-A" class="headerlink" title="Promises/A+"></a>Promises/A+</h1><p><img src="/img/callback-hell.jpg" alt=""><br><code>Promise</code> 表示一个异步操作的最终结果，与之进行交互的方式主要是 <code>then</code> 方法，该方法注册了两个回调函数，用于接收 promise 的终值或本 promise 不能执行的原因。</p>
+<h1 id="Promises-A"><a href="#Promises-A" class="headerlink" title="Promises/A+"></a>Promises/A+</h1><p><img src="/medias/img/callback-hell-gray.jpg" alt=""><br><code>Promise</code> 表示一个异步操作的最终结果，与之进行交互的方式主要是 <code>then</code> 方法，该方法注册了两个回调函数，用于接收 promise 的终值或本 promise 不能执行的原因。</p>
 <p>本规范详细列出了 <code>then</code> 方法的执行过程，所有遵循 Promises/A+ 规范实现的 promise 均可以本标准作为参照基础来实施 <code>then</code> 方法。因而本规范是十分稳定的。尽管 Promise/A+ 组织有时可能会修订本规范，但主要是为了处理一些特殊的边界情况，且这些改动都是微小且向下兼容的。如果我们要进行大规模不兼容的更新，我们一定会在事先进行谨慎地考虑、详尽的探讨和严格的测试。</p>
 <p>从历史上说，本规范实际上是把之前 Promise/A+ 规范中的建议明确成为了行为标准：我们一方面扩展了原有规范约定俗成的行为，一方面删减了原规范的一些特例情况和有问题的部分。</p>
 <p>最后，核心的 Promises/A+ 规范不设计如何创建、解决和拒绝 promise，而是专注于提供一个通用的 <code>then</code> 方法。上述对于 promises 的操作方法将来在其他规范中可能会提及。</p>
@@ -597,7 +597,7 @@
             <div class="reprint__author">
                 <span class="reprint-meta" style="font-weight: bold;">
                     <i class="fas fa-user">
-                        Author:
+                        文章作者:
                     </i>
                 </span>
                 <span class="reprint-info">
@@ -607,7 +607,7 @@
             <div class="reprint__type">
                 <span class="reprint-meta" style="font-weight: bold;">
                     <i class="fas fa-link">
-                        Link:
+                        文章链接:
                     </i>
                 </span>
                 <span class="reprint-info">
@@ -617,13 +617,13 @@
             <div class="reprint__notice">
                 <span class="reprint-meta" style="font-weight: bold;">
                     <i class="fas fa-copyright">
-                        Reprint policy:
+                        版权声明:
                     </i>
                 </span>
                 <span class="reprint-info">
-                    All articles in this blog are used except for special statements
+                    本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
-                    reprint polocy. If reproduced, please indicate source
+                    许可协议。转载请注明来源
                     <a href="https://jaylin1011.gitee.io" target="_blank">Jay Lin</a>
                     !
                 </span>
@@ -633,7 +633,7 @@
 
     <script async defer>
       document.addEventListener("copy", function (e) {
-        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
         M.toast({html: toastHTML})
       });
 
@@ -822,12 +822,12 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
                 <a href="/2018/06/27/hello-world/">
                     <div class="card-image">
                         
-                        <img src="/img/steamed-vermicelli-roll.jpeg" class="responsive-img" alt="这是一条用于测试的肠粉">
+                        <img src="/medias/img/rice-roll.jpeg" class="responsive-img" alt="这是一条用于测试的肠粉">
                         
                         <span class="card-title">这是一条用于测试的肠粉</span>
                     </div>
@@ -873,13 +873,13 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                Current&nbsp;<i class="far fa-dot-circle"></i>
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
                 <a href="/2018/06/27/promises-aplus/">
                     <div class="card-image">
                         
-                        <img src="/img/callback-hell.jpg" class="responsive-img" alt="基于Promises/A+规范封装Promise">
+                        <img src="/medias/img/callback-hell.jpg" class="responsive-img" alt="基于Promises/A+规范封装Promise">
                         
                         <span class="card-title">基于Promises/A+规范封装Promise</span>
                     </div>
@@ -1037,8 +1037,8 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 <div id="searchModal" class="modal">
     <div class="modal-content">
         <div class="search-header">
-            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
-            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
                    class="search-input">
         </div>
         <div id="searchResult"></div>
@@ -1053,9 +1053,10 @@ $(function () {
 </script>
     <!-- 回到顶部按钮 -->
 <div id="backTop" class="top-scroll">
-    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
-        <i class="fas fa-arrow-up"></i>
-    </a>
+  <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+    <!-- <i class="fas fa-arrow-up"></i> -->
+    <i class="iconfont icon-mao-copy"></i>
+  </a>
 </div>
 
 

@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="zh-CN">
 
 
 <head>
@@ -64,7 +64,7 @@
       
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
-      <span>Tags</span>
+      <span>标签</span>
     </a>
     
   </li>
@@ -75,7 +75,7 @@
       
       <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
       
-      <span>Categories</span>
+      <span>分类</span>
     </a>
     
   </li>
@@ -86,7 +86,7 @@
       
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
-      <span>Archives</span>
+      <span>归档</span>
     </a>
     
   </li>
@@ -104,7 +104,7 @@
   
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
-      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
     </a>
   </li>
 </ul>
@@ -146,7 +146,7 @@
               
                 <i class="fa-fw fas fa-tags"></i>
                 
-                    Tags
+                    标签
             </a>
             
         </li>
@@ -157,7 +157,7 @@
               
                 <i class="fa-fw fas fa-bookmark"></i>
                 
-                    Categories
+                    分类
             </a>
             
         </li>
@@ -168,7 +168,7 @@
               
                 <i class="fa-fw fas fa-archive"></i>
                 
-                    Archives
+                    归档
             </a>
             
         </li>
@@ -294,7 +294,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/img/vuejs.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/img/vuejs.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -349,7 +349,7 @@
             <div class="post-info">
                 
                 <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
                     2020-01-28
                 </div>
                 
@@ -358,21 +358,21 @@
 
                 
                 <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
                     1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
-                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    6 Min
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    6 分
                 </div>
                 
 				
                 
                     <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
                         <span id="busuanzi_value_page_pv"></span>
                     </div>
 				
@@ -385,7 +385,7 @@
                 <p>自定义封装实现 vue2 框架，实现 MVVM 功能，包括模板编译、指令解析和数据（双向）绑定的功能。</p>
 <h1 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>MVVM 分别指 View，Model，View-Model，View 通过 View-Model 的 DOM Listeners 将事件绑定到 Model 上，而 Model 则通过 Data Bindings 来管理 View 中的数据，View-Model 从中起到一个连接桥的作用。</p>
 <p>在 MVVM 中 View 和 Model 是不可以直接进行通信的，它们之间存在这 ViewModel 这个中介充当着观察者的角色。当用户操作 View，ViewModel 感知到变化，然后通知 Model 发生相应改变，反之亦然。ViewModel 向上与视图层 View 进行双向数据绑定，向下与 Model 通过接口请求进行数据交互，起到承上启下的作用。</p>
-<p><img src="/img/mvvm.jpg" alt=""></p>
+<p><img src="/medias/img/mvvm.jpg" alt=""></p>
 <h2 id="概念详解"><a href="#概念详解" class="headerlink" title="概念详解"></a>概念详解</h2><ul>
 <li>M——Model 层（数据模型 | 状态）</li>
 </ul>
@@ -415,7 +415,7 @@
 <li>观察者模式</li>
 </ul>
 <p>使用了发布-订阅模式来实现数据驱动视图和数据（双向）绑定</p>
-<p><img src="/img/vue-mvvm.jpg" alt=""></p>
+<p><img src="/medias/img/vue-mvvm.jpg" alt=""></p>
 <h2 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h2><p>自定义封装实现<a href="https://gitee.com/jaylin1011/vue2-mvvm" target="_blank" rel="noopener">Vue2</a>框架，实现 MVVM 功能，包括模板编译、指令解析和数据（双向）绑定的功能。</p>
 <h3 id="Vue2"><a href="#Vue2" class="headerlink" title="Vue2"></a>Vue2</h3><p>Vue2 类是核心类之一，主要实现了 MVVM 初始化和数据代理的功能</p>
 <pre><code>class Vue2 {
@@ -618,7 +618,7 @@
             <div class="reprint__author">
                 <span class="reprint-meta" style="font-weight: bold;">
                     <i class="fas fa-user">
-                        Author:
+                        文章作者:
                     </i>
                 </span>
                 <span class="reprint-info">
@@ -628,7 +628,7 @@
             <div class="reprint__type">
                 <span class="reprint-meta" style="font-weight: bold;">
                     <i class="fas fa-link">
-                        Link:
+                        文章链接:
                     </i>
                 </span>
                 <span class="reprint-info">
@@ -638,13 +638,13 @@
             <div class="reprint__notice">
                 <span class="reprint-meta" style="font-weight: bold;">
                     <i class="fas fa-copyright">
-                        Reprint policy:
+                        版权声明:
                     </i>
                 </span>
                 <span class="reprint-info">
-                    All articles in this blog are used except for special statements
+                    本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
-                    reprint polocy. If reproduced, please indicate source
+                    许可协议。转载请注明来源
                     <a href="https://jaylin1011.gitee.io" target="_blank">Jay Lin</a>
                     !
                 </span>
@@ -654,7 +654,7 @@
 
     <script async defer>
       document.addEventListener("copy", function (e) {
-        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
         M.toast({html: toastHTML})
       });
 
@@ -843,34 +843,49 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/02/05/base-css/">
+                <a href="/2020/01/28/base-css/">
                     <div class="card-image">
                         
+                        <img src="/medias/img/loading.gif" class="responsive-img" alt="封装基本公共样式工具库">
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="base-css">
-                        
-                        <span class="card-title">base-css</span>
+                        <span class="card-title">封装基本公共样式工具库</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            使用SASS自定义封装一个类似于Bootstrap风格的基本可复用样式工具库,将常见的基本样式封装到一个统一的 base.css 文件中。
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-05
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-28
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Jay Lin
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/SASS/" class="post-category">
+                                    SASS
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CSS/">
+                        <span class="chip bg-color">CSS</span>
+                    </a>
+                    
+                    <a href="/tags/SASS/">
+                        <span class="chip bg-color">SASS</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -879,13 +894,13 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/2018/06/27/hello-world/">
                     <div class="card-image">
                         
-                        <img src="/img/steamed-vermicelli-roll.jpeg" class="responsive-img" alt="这是一条用于测试的肠粉">
+                        <img src="/medias/img/rice-roll.jpeg" class="responsive-img" alt="这是一条用于测试的肠粉">
                         
                         <span class="card-title">这是一条用于测试的肠粉</span>
                     </div>
@@ -1042,8 +1057,8 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 <div id="searchModal" class="modal">
     <div class="modal-content">
         <div class="search-header">
-            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
-            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
                    class="search-input">
         </div>
         <div id="searchResult"></div>
@@ -1058,9 +1073,10 @@ $(function () {
 </script>
     <!-- 回到顶部按钮 -->
 <div id="backTop" class="top-scroll">
-    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
-        <i class="fas fa-arrow-up"></i>
-    </a>
+  <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+    <!-- <i class="fas fa-arrow-up"></i> -->
+    <i class="iconfont icon-mao-copy"></i>
+  </a>
 </div>
 
 

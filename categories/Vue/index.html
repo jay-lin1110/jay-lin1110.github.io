@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="zh-CN">
 
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Category: Vue, Jay Lin">
-    <meta name="description" content="Category: Vue | Jay Lin">
+    <meta name="keywords" content="分类: Vue, Jay Lin">
+    <meta name="description" content="分类: Vue | Jay Lin">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Category: Vue | Jay Lin</title>
+    <title>分类: Vue | Jay Lin</title>
     <link rel="icon" type="image/png" href="/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -64,7 +64,7 @@
       
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
-      <span>Tags</span>
+      <span>标签</span>
     </a>
     
   </li>
@@ -75,7 +75,7 @@
       
       <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
       
-      <span>Categories</span>
+      <span>分类</span>
     </a>
     
   </li>
@@ -86,7 +86,7 @@
       
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
-      <span>Archives</span>
+      <span>归档</span>
     </a>
     
   </li>
@@ -104,7 +104,7 @@
   
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
-      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
     </a>
   </li>
 </ul>
@@ -146,7 +146,7 @@
               
                 <i class="fa-fw fas fa-tags"></i>
                 
-                    Tags
+                    标签
             </a>
             
         </li>
@@ -157,7 +157,7 @@
               
                 <i class="fa-fw fas fa-bookmark"></i>
                 
-                    Categories
+                    分类
             </a>
             
         </li>
@@ -168,7 +168,7 @@
               
                 <i class="fa-fw fas fa-archive"></i>
                 
-                    Archives
+                    归档
             </a>
             
         </li>
@@ -331,16 +331,25 @@
     <div class="card">
         <div class="card-content">
             <div class="tag-title center-align">
-                <i class="fas fa-bookmark"></i>&nbsp;&nbsp;Post Categories
+                <i class="fas fa-bookmark"></i>&nbsp;&nbsp;文章分类
             </div>
             <div class="tag-chips">
                 
                 
                 
+                <a href="/categories/SASS/" title="SASS: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F9EBEA;">SASS
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/categories/Food/" title="Food: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F9EBEA;">Food
+                            style="background-color: #F5EEF8;">Food
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -349,7 +358,7 @@
                 <a href="/categories/Vue/" title="Vue: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
-                            style="background-color: #F5EEF8;">Vue
+                            style="background-color: #D5F5E3;">Vue
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -358,7 +367,7 @@
                 <a href="/categories/ES2015/" title="ES2015: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #D5F5E3;">ES2015
+                            style="background-color: #E8F8F5;">ES2015
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -379,7 +388,7 @@
                     <a href="/2020/01/28/vue2-mvvm/">
                         <div class="card-image tag-image">
                             
-                            <img src="/img/vuejs.jpg" class="responsive-img" alt="vue框架的简单实现">
+                            <img src="/medias/img/vuejs.jpg" class="responsive-img" alt="vue框架的简单实现">
                             
                             <span class="card-title">vue框架的简单实现</span>
                         </div>
@@ -507,8 +516,8 @@
 <div id="searchModal" class="modal">
     <div class="modal-content">
         <div class="search-header">
-            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
-            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
                    class="search-input">
         </div>
         <div id="searchResult"></div>
@@ -523,9 +532,10 @@ $(function () {
 </script>
     <!-- 回到顶部按钮 -->
 <div id="backTop" class="top-scroll">
-    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
-        <i class="fas fa-arrow-up"></i>
-    </a>
+  <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+    <!-- <i class="fas fa-arrow-up"></i> -->
+    <i class="iconfont icon-mao-copy"></i>
+  </a>
 </div>
 
 
