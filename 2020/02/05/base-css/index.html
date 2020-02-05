@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="vue框架的简单实现, Jay Lin">
-    <meta name="description" content="自定义封装实现vue2框架，实现MVVM功能，包括模板编译、指令解析和数据（双向）绑定的功能。">
+    <meta name="keywords" content="base-css, Jay Lin">
+    <meta name="description" content="base-css | Jay Lin">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>vue框架的简单实现 | Jay Lin</title>
+    <title>base-css | Jay Lin</title>
     <link rel="icon" type="image/png" href="/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -294,12 +294,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/img/vuejs.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">vue框架的简单实现</h1>
+                    <h1 class="description center-align post-title">base-css</h1>
                 </div>
             </div>
         </div>
@@ -309,39 +309,117 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/JavaScript/">
-                                <span class="chip bg-color">JavaScript</span>
-                            </a>
-                        
-                            <a href="/tags/Vue/">
-                                <span class="chip bg-color">Vue</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">No tag</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/Vue/" class="post-category">
-                                Vue
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -350,7 +428,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-01-28
+                    2020-02-05
                 </div>
                 
 
@@ -359,14 +437,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.5k
+                    0
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    6 Min
+                    1 Min
                 </div>
                 
 				
@@ -382,232 +460,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>自定义封装实现 vue2 框架，实现 MVVM 功能，包括模板编译、指令解析和数据（双向）绑定的功能。</p>
-<h1 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>MVVM 分别指 View，Model，View-Model，View 通过 View-Model 的 DOM Listeners 将事件绑定到 Model 上，而 Model 则通过 Data Bindings 来管理 View 中的数据，View-Model 从中起到一个连接桥的作用。</p>
-<p>在 MVVM 中 View 和 Model 是不可以直接进行通信的，它们之间存在这 ViewModel 这个中介充当着观察者的角色。当用户操作 View，ViewModel 感知到变化，然后通知 Model 发生相应改变，反之亦然。ViewModel 向上与视图层 View 进行双向数据绑定，向下与 Model 通过接口请求进行数据交互，起到承上启下的作用。</p>
-<p><img src="/img/mvvm.jpg" alt=""></p>
-<h2 id="概念详解"><a href="#概念详解" class="headerlink" title="概念详解"></a>概念详解</h2><ul>
-<li>M——Model 层（数据模型 | 状态）</li>
-</ul>
-<p>数据模型与持久化抽象模型。数据模型很好理解，就是从服务器拉回来的 JSON 数据。而持久化抽象模型暂时放在 Model 层，是因为 MVVM 诞生之初就没有对这块进行很细致的描述。按照经验，我们通常把数据库、文件操作封装成 Model，并对外提供操作接口。</p>
-<ul>
-<li>V——View 层（视图层）</li>
-</ul>
-<p>视图展示。包含 UIView 以及 UIViewController，View 层是可以持有 ViewModel 的。</p>
-<ul>
-<li>VM——ViewModel（视图适配）</li>
-</ul>
-<p>视图适配器。暴露属性与 View 元素显示内容或者元素状态一一对应。一般情况下 ViewModel 暴露的属性建议是 readOnly 的，至于为什么，我们在实战中会去解释。还有一点，ViewModel 层是可以持有 Model 的。ViewModel 类似中转站(Value Converter)，负责转换 Model 中的数据对象，使得数据变得更加易于管理和使用。MVVM 本质就是基于操作数据来操作视图进而操作 DOM，借助于 MVVM 无需直接操作 DOM，开发者只需完成包含声明绑定的视图模板，编写 ViewModel 中有业务，使得 View 完全实现自动化。</p>
-<h2 id="与-MVC-区别"><a href="#与-MVC-区别" class="headerlink" title="与 MVC 区别"></a>与 MVC 区别</h2><ol>
-<li>实现了<strong>数据</strong>与<strong>视图</strong>的分离</li>
-<li>解耦了 DOM 操作</li>
-</ol>
-<p>通过<strong>数据</strong>来驱动<strong>视图</strong>，开发者只需要关心数据变化，DOM 操作被封装了。</p>
-<h2 id="实现原理-（功能）"><a href="#实现原理-（功能）" class="headerlink" title="实现原理 （功能）"></a>实现原理 （功能）</h2><ul>
-<li>响应式数据</li>
-</ul>
-<p>监听 data 属性的变化，在 vue 中，依赖于 ES5 的一个方法——<code>Object.defineProperty ()</code>来实现<strong>数据劫持</strong></p>
-<ul>
-<li>模板编译</li>
-</ul>
-<p>这里主要实现了一般指令、事件指令和插值表达式的编译解析</p>
-<ul>
-<li>观察者模式</li>
-</ul>
-<p>使用了发布-订阅模式来实现数据驱动视图和数据（双向）绑定</p>
-<p><img src="/img/vue-mvvm.jpg" alt=""></p>
-<h2 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h2><p>自定义封装实现<a href="https://gitee.com/jaylin1011/vue2-mvvm" target="_blank" rel="noopener">Vue2</a>框架，实现 MVVM 功能，包括模板编译、指令解析和数据（双向）绑定的功能。</p>
-<h3 id="Vue2"><a href="#Vue2" class="headerlink" title="Vue2"></a>Vue2</h3><p>Vue2 类是核心类之一，主要实现了 MVVM 初始化和数据代理的功能</p>
-<pre><code>class Vue2 {
-  constructor(options) {
-    const { el, data, computed, methods } = options
-    this.$el = el
-    this.$data = data
-    if (this.$el) {
-      new Observer(this.$data)
-      this.compileComputed(this.$data, computed)
-      this.compileMethods(methods)
-      // 数据代理vm.$data.xxx =&gt; vm.xxx
-      this._proxy(this.$data)
-
-      new Compile(this.$el, this)
-    }
-  }
-  compileComputed(data, computed) {
-    Object.keys(computed).forEach(key =&gt; {
-      Object.defineProperty(data, key, {
-        get: () =&gt; computed[key].call(this)
-      })
-    })
-  }
-  compileMethods(methods) {
-    Object.keys(methods).forEach(key =&gt; {
-      Object.defineProperty(this, key, {
-        get: () =&gt; methods[key]
-      })
-    })
-  }
-  _proxy(data) {
-    Object.keys(data).forEach(key =&gt; {
-      Object.defineProperty(this, key, {
-        get() {
-          return data[key]
-        },
-        set(newValue) {
-          data[key] = newValue
-        }
-      })
-    })
-  }
-}</code></pre><h3 id="Compile"><a href="#Compile" class="headerlink" title="Compile"></a>Compile</h3><p>Complile 类是核心类之一，将当前页面的所有元素节点碎片化放入内存中，编译元素节点和文本节点，解析各种相关指令，将编译完成的文档碎片从内存中取出放回页面</p>
-<pre><code>class Compile {
-  constructor(el, vm) {
-    this.el = this.isElementNode(el) ? el : document.querySelector(el)
-    this.vm = vm
-    const fragment = this.nodeToFragment(this.el)
-    this.compile(fragment)
-    this.el.appendChild(fragment)
-  }
-  isElementNode(node) {
-    return node.nodeType === 1
-  }
-  isTextNode(node) {
-    return node.nodeType === 3
-  }
-  isDirective(attrName) {
-    return attrName.startsWith(&#39;v-&#39;)
-  }
-  isEventDirective(attrName) {
-    return attrName.startsWith(&#39;@&#39;)
-  }
-  isMustache(content) {
-    // return content.includes(&#39;{{&#39;)
-    const reg = /\{\{(.+?)\}\}/
-    return reg.test(content)
-  }
-  nodeToFragment(node) {
-    const fragment = document.createDocumentFragment()
-    let firstChild
-    // eslint-disable-next-line no-cond-assign
-    while (firstChild = node.firstChild) {
-      fragment.appendChild(firstChild)
-    }
-    return fragment
-  }
-  compile(fragment) {
-    // 当前模板的第一层子节点
-    const childNodes = fragment.childNodes;
-    [...childNodes].forEach(child =&gt; {
-      if (this.isElementNode(child)) {
-        this.compileElement(child)
-        if (child.childNodes &amp;&amp; child.childNodes.length) {
-          this.compile(child)
-        }
-      } else {
-        this.compileText(child)
-      }
-    })
-  }
-  compileElement(node) {
-    const attributes = node.attributes;
-    [...attributes].forEach(attr =&gt; {
-      // 根据属性获取属性名和属性值
-      // v-model = &#39;daisy.name&#39; =&gt; {name: &#39;v-model&#39;, value: &#39;daisy.name&#39;
-      const { name, value: exp } = attr
-      if (this.isDirective(name)) {
-        // 根据属性名字截取指令名字
-        // v-model =&gt; [&#39;v&#39;, &#39;model&#39;]
-        const [, directive] = name.split(&#39;-&#39;)
-        // 根据指令名字截取事件名字
-        // on:click =&gt; [&#39;on&#39;, &#39;click&#39;]
-        const [directiveName, eventName] = directive.split(&#39;:&#39;)
-        CompileUtils[directiveName](node, exp, this.vm, eventName)
-        // 指令编译完成后删除标签的指令属性
-        node.removeAttribute(`v-${directive}`)
-      } else if (this.isEventDirective(name)) {
-        const [, eventName] = name.split(&#39;@&#39;)
-        CompileUtils[&#39;on&#39;](node, exp, this.vm, eventName)
-      }
-    })
-  }
-  compileText(node) {
-    const content = node.textContent
-    if (this.isMustache(content)) {
-      CompileUtils[&#39;mustache&#39;](node, content, this.vm)
-    }
-  }
-}</code></pre><h3 id="Observer"><a href="#Observer" class="headerlink" title="Observer"></a>Observer</h3><p>Observer 类是核心类之一，通过递归的方式和<code>Object.defineProperty ()</code>方法将数据响应式化，实现数据的深层劫持，监听数据的属性（此处并没有通过函数拦截的方式数组类型数据进行额外的处理）</p>
-<pre><code>class Observer {
-  constructor(data) {
-    this.observer(data)
-  }
-  isObject(value) {
-    return !!value &amp;&amp; typeof value === &#39;object&#39;
-  }
-  observer(data) {
-    if (this.isObject(data)) {
-      Object.keys(data).forEach(key =&gt; this.defineReactive(data, key, data[key]))
-    }
-  }
-  defineReactive(target, key, value) {
-    // 递归劫持嵌套对象
-    this.observer(value)
-    const dep = new Dep()
-    Object.defineProperty(target, key, {
-      enumerable: true,
-      configurable: false,
-      get() {
-        Dep.target &amp;&amp; dep.addSub(Dep.target)
-        return value
-      },
-      set: (newValue) =&gt; {
-        if (newValue !== value) {
-          value = newValue
-          // 赋值为新对象，继续递归劫持
-          this.observer(value)
-          dep.notify()
-        }
-      }
-    })
-  }
-}</code></pre><h3 id="Watcher"><a href="#Watcher" class="headerlink" title="Watcher"></a>Watcher</h3><p>Watcher 类进行依赖收集</p>
-<pre><code>class Watcher {
-  constructor(vm, exp, cb) {
-    this.vm = vm
-    this.exp = exp
-    this.cb = cb
-    // 存放老值
-    this.oldValue = this.getOldValue()
-  }
-  getOldValue() {
-    Dep.target = this
-    const value = CompileUtils.getValue(this.vm, this.exp)
-    Dep.target = null
-    return value
-  }
-
-  update() {
-    const newValue = CompileUtils.getValue(this.vm, this.exp)
-    if (newValue !== this.oldValue) {
-      this.cb(newValue)
-    }
-  }
-}</code></pre><p>Dep</p>
-<p>Dep 类当数据更新时进行派发更新</p>
-<pre><code>class Dep {
-  constructor() {
-    // 存放所有watcher
-    this.subs = []
-  }
-  // 订阅，添加watcher
-  addSub(watcher) {
-    this.subs.push(watcher)
-  }
-  // 发布
-  notify() {
-    this.subs.forEach(watcher =&gt; watcher.update())
-  }
-}</code></pre>
+                
             </div>
             <hr/>
 
@@ -632,7 +485,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://jaylin1011.gitee.io/2020/01/28/vue2-mvvm/">https://jaylin1011.gitee.io/2020/01/28/vue2-mvvm/</a>
+                    <a href="https://jaylin1011.gitee.io/2020/02/05/base-css/">https://jaylin1011.gitee.io/2020/02/05/base-css/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -669,15 +522,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/JavaScript/">
-                                    <span class="chip bg-color">JavaScript</span>
-                                </a>
-                            
-                                <a href="/tags/Vue/">
-                                    <span class="chip bg-color">Vue</span>
-                                </a>
-                            
+                            <span class="chip bg-color">No tag</span>
                         </div>
                     
                 </div>
@@ -841,9 +686,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/2020/02/05/base-css/">
                     <div class="card-image">
@@ -861,9 +707,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-05
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -872,6 +718,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -882,30 +729,30 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/06/27/hello-world/">
+                <a href="/2020/01/28/vue2-mvvm/">
                     <div class="card-image">
                         
-                        <img src="/img/steamed-vermicelli-roll.jpeg" class="responsive-img" alt="这是一条用于测试的肠粉">
+                        <img src="/img/vuejs.jpg" class="responsive-img" alt="vue框架的简单实现">
                         
-                        <span class="card-title">这是一条用于测试的肠粉</span>
+                        <span class="card-title">vue框架的简单实现</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这是一条神奇的肠粉，因为它具有特别的纪念意义。一来这是纪念本人和小铭同学一起吃过的正宗早餐。二来这是本博客测试的第一条肠粉。
+                            自定义封装实现vue2框架，实现MVVM功能，包括模板编译、指令解析和数据（双向）绑定的功能。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2018-06-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Food/" class="post-category">
-                                    Food
+                            <a href="/categories/Vue/" class="post-category">
+                                    Vue
                                 </a>
                             
                             
@@ -915,12 +762,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Life/">
-                        <span class="chip bg-color">Life</span>
+                    <a href="/tags/JavaScript/">
+                        <span class="chip bg-color">JavaScript</span>
                     </a>
                     
-                    <a href="/tags/Food/">
-                        <span class="chip bg-color">Food</span>
+                    <a href="/tags/Vue/">
+                        <span class="chip bg-color">Vue</span>
                     </a>
                     
                 </div>
@@ -958,6 +805,100 @@
 <style type="text/css">
 code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
 </style>
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
 
     
 
