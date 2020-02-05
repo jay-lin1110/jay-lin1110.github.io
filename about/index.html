@@ -287,38 +287,43 @@
 <div class="bg-cover pd-header about-cover">
     <div class="container">
     <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                你好呀~
-                
-            </div>
+  <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+    <div class="brand">
+      <div class="title center-align">
+         你好呀~ 
+      </div>
 
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: ['愿你今后眼中有光芒，活成小猪佩奇的模样~','Keep your dreams, color your world.'],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
-                
-            </div>
-        </div>
+      <div class="description center-align">
+        
+        <span id="subtitle"></span>
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+        <script>
+          var typed = new Typed("#subtitle", {
+              strings: ['愿你今后眼中有光芒，活成小猪佩奇的模样~','Keep your dreams, color your world.'],
+              startDelay: 300,
+              typeSpeed: 100,
+              loop: true,
+              backSpeed: 50,
+              showCursor: true
+          });
+        </script>
+        
+      </div>
     </div>
+  </div>
 </div>
 
 
 <script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
+  // 每天切换 banner 图.  Switch banner image every day.
+  //   $(".bg-cover").css(
+  //     "background-image",
+  //     "url(/medias/banner/" + new Date().getDay() + ".jpg)"
+  //   );
+  $(".bg-cover").css(
+    "background-image",
+    "url(/medias/background-image/" + Math.floor(Math.random() * 10) + ".jpg)"
+  );
 </script>
 
 
@@ -385,7 +390,7 @@
 
                                 </div>
                                 <div class="title">Jay Lin</div>
-                                <div class="career">Software Engineer</div>
+                                <div class="career">前端开发工程师</div>
                                 <div class="social-link hide-on-large-only" data-aos="zoom-in-left">
                                     
     <a href="https://github.com/jaylin1011" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
@@ -461,7 +466,7 @@
                     </div>
                 </div>
 
-                <div class="introduction center-align" data-aos="fade-up">If you wish to succeed, you should use persistence as your good friend, experience as your reference, prudence as your brother and hope as your sentry.</div>
+                <div class="introduction center-align" data-aos="fade-up">一切能使用JavaScript实现的应用程序，最终都将由JavaScript或者TypeScript来实现。</div>
 
                 <style type="text/css">
     #posts-chart,
@@ -812,20 +817,38 @@
         
         
         <div class="photo col s12 m6 l4" data-aos="fade-up">
-            <div class="img-item" data-src="/medias/featureimages/0.jpg">
-                <img src="/medias/featureimages/0.jpg" class="responsive-img">
+            <div class="img-item" data-src="/medias/gallery/leo.gif">
+                <img src="/medias/gallery/leo.gif" class="responsive-img">
             </div>
         </div>
         
         <div class="photo col s12 m6 l4" data-aos="fade-up">
-            <div class="img-item" data-src="/medias/featureimages/1.jpg">
-                <img src="/medias/featureimages/1.jpg" class="responsive-img">
+            <div class="img-item" data-src="/medias/gallery/dance.gif">
+                <img src="/medias/gallery/dance.gif" class="responsive-img">
             </div>
         </div>
         
         <div class="photo col s12 m6 l4" data-aos="fade-up">
-            <div class="img-item" data-src="/medias/featureimages/2.jpg">
-                <img src="/medias/featureimages/2.jpg" class="responsive-img">
+            <div class="img-item" data-src="/medias/gallery/tea.jpg">
+                <img src="/medias/gallery/tea.jpg" class="responsive-img">
+            </div>
+        </div>
+        
+        <div class="photo col s12 m6 l4" data-aos="fade-up">
+            <div class="img-item" data-src="/medias/gallery/steak.jpg">
+                <img src="/medias/gallery/steak.jpg" class="responsive-img">
+            </div>
+        </div>
+        
+        <div class="photo col s12 m6 l4" data-aos="fade-up">
+            <div class="img-item" data-src="/medias/gallery/movies.jpg">
+                <img src="/medias/gallery/movies.jpg" class="responsive-img">
+            </div>
+        </div>
+        
+        <div class="photo col s12 m6 l4" data-aos="fade-up">
+            <div class="img-item" data-src="/medias/gallery/goose.jpg">
+                <img src="/medias/gallery/goose.jpg" class="responsive-img">
             </div>
         </div>
         
