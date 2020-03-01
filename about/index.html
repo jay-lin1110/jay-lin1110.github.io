@@ -527,7 +527,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [0,0,0,0,0,0,0,0,0,0,8,3,0],
+                data: [0,0,0,0,0,0,0,0,0,0,10,3,0],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -569,7 +569,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"Express","value":1},{"name":"NestJS","value":1},{"name":"SASS","value":1},{"name":"ES2015","value":1},{"name":"Vue","value":1},{"name":"Vue.js","value":4},{"name":"Food","value":1},{"name":"FullStack","value":1},{"name":"MINA","value":1},{"name":"webpack","value":1}],
+                data: [{"name":"SASS","value":1},{"name":"Food","value":1},{"name":"Express","value":1},{"name":"NestJS","value":1},{"name":"ES2015","value":1},{"name":"FullStack","value":1},{"name":"Vue","value":1},{"name":"Vue.js","value":4},{"name":"webpack","value":1},{"name":"MINA","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -593,7 +593,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["JavaScript","Vue.js","Node.js","Express","NestJS","TypeScript","CSS","SASS","ES2015","VSCode"]
+                data: ["JavaScript","Vue.js","Node.js","Express","CSS","SASS","Life","Food","NestJS","TypeScript"]
             }
         ],
         yAxis: [
@@ -857,6 +857,30 @@
         <div class="tag-chips center-align">
             
             
+            <a href="/tags/CSS/">
+                <span class="chip center-align waves-effect waves-light chip-default">CSS</span>
+            </a>
+            
+            
+            
+            <a href="/tags/SASS/">
+                <span class="chip center-align waves-effect waves-light chip-default">SASS</span>
+            </a>
+            
+            
+            
+            <a href="/tags/Life/">
+                <span class="chip center-align waves-effect waves-light chip-default">Life</span>
+            </a>
+            
+            
+            
+            <a href="/tags/Food/">
+                <span class="chip center-align waves-effect waves-light chip-default">Food</span>
+            </a>
+            
+            
+            
             <a href="/tags/Node-js/">
                 <span class="chip center-align waves-effect waves-light chip-default">Node.js</span>
             </a>
@@ -883,20 +907,14 @@
             
             
             
-            <a href="/tags/CSS/">
-                <span class="chip center-align waves-effect waves-light chip-default">CSS</span>
-            </a>
-            
-            
-            
-            <a href="/tags/SASS/">
-                <span class="chip center-align waves-effect waves-light chip-default">SASS</span>
-            </a>
-            
-            
-            
             <a href="/tags/ES2015/">
                 <span class="chip center-align waves-effect waves-light chip-default">ES2015</span>
+            </a>
+            
+            
+            
+            <a href="/tags/FullStack/">
+                <span class="chip center-align waves-effect waves-light chip-default">FullStack</span>
             </a>
             
             
@@ -909,32 +927,14 @@
             
             
             
-            <a href="/tags/Life/">
-                <span class="chip center-align waves-effect waves-light chip-default">Life</span>
-            </a>
-            
-            
-            
-            <a href="/tags/Food/">
-                <span class="chip center-align waves-effect waves-light chip-default">Food</span>
-            </a>
-            
-            
-            
-            <a href="/tags/FullStack/">
-                <span class="chip center-align waves-effect waves-light chip-default">FullStack</span>
+            <a href="/tags/webpack/">
+                <span class="chip center-align waves-effect waves-light chip-default">webpack</span>
             </a>
             
             
             
             <a href="/tags/MINA/">
                 <span class="chip center-align waves-effect waves-light chip-default">MINA</span>
-            </a>
-            
-            
-            
-            <a href="/tags/webpack/">
-                <span class="chip center-align waves-effect waves-light chip-default">webpack</span>
             </a>
             
             
@@ -1106,8 +1106,8 @@ $(function () {
     <!-- 回到顶部按钮 -->
 <div id="backTop" class="top-scroll">
   <a class="btn-floating btn-large waves-effect waves-light" href="#!">
-    <!-- <i class="fas fa-arrow-up"></i> -->
-    <i class="iconfont icon-mao-copy"></i>
+    <i class="fas fa-arrow-up"></i>
+    <!-- <i class="iconfont icon-mao-copy"></i> -->
   </a>
 </div>
 

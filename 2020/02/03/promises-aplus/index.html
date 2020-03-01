@@ -445,7 +445,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2018-06-27
+                    2020-02-03
                 </div>
                 
 
@@ -505,33 +505,33 @@
 </ul>
 <p>这里的不可变指的是恒等（即可用 <code>===</code> 判断相等），而不是意味着更深层次的不可变（<strong>译者注：</strong>盖指当 value 或 reason 不是基本值时，只要求其引用地址相等，但属性值可被更改）。</p>
 <pre class="line-numbers language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// states</span>
-<span class="token keyword">const</span> FULFILLED <span class="token operator">=</span> <span class="token string">"fulfilled"</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> REJECTED <span class="token operator">=</span> <span class="token string">"rejected"</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> PENDING <span class="token operator">=</span> <span class="token string">"pending"</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> FULFILLED <span class="token operator">=</span> <span class="token string">'fulfilled'</span>
+<span class="token keyword">const</span> REJECTED <span class="token operator">=</span> <span class="token string">'rejected'</span>
+<span class="token keyword">const</span> PENDING <span class="token operator">=</span> <span class="token string">'pending'</span>
 <span class="token comment" spellcheck="true">// init state and value</span>
-<span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> PENDING<span class="token punctuation">;</span>
-<span class="token keyword">this</span><span class="token punctuation">.</span>value <span class="token operator">=</span> undefined<span class="token punctuation">;</span>
-<span class="token keyword">this</span><span class="token punctuation">.</span>callbacks <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> PENDING
+<span class="token keyword">this</span><span class="token punctuation">.</span>value <span class="token operator">=</span> undefined
+<span class="token keyword">this</span><span class="token punctuation">.</span>callbacks <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
 <span class="token comment" spellcheck="true">// define resolve function</span>
 <span class="token keyword">const</span> resolve <span class="token operator">=</span> value <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>value <span class="token keyword">instanceof</span> <span class="token class-name">PromiseA</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> value<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> value<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
 
   <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">===</span> PENDING<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> FULFILLED<span class="token punctuation">;</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>value <span class="token operator">=</span> value<span class="token punctuation">;</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>callbacks<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>callbackObj <span class="token operator">=</span><span class="token operator">></span> callbackObj<span class="token punctuation">.</span><span class="token function">onFulfilled</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> FULFILLED
+    <span class="token keyword">this</span><span class="token punctuation">.</span>value <span class="token operator">=</span> value
+    <span class="token keyword">this</span><span class="token punctuation">.</span>callbacks<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>callbackObj <span class="token operator">=</span><span class="token operator">></span> callbackObj<span class="token punctuation">.</span><span class="token function">onFulfilled</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 <span class="token comment" spellcheck="true">// define reject function</span>
 <span class="token keyword">const</span> reject <span class="token operator">=</span> reason <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">===</span> PENDING<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> REJECTED<span class="token punctuation">;</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>value <span class="token operator">=</span> reason<span class="token punctuation">;</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>callbacks<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>callbackObj <span class="token operator">=</span><span class="token operator">></span> callbackObj<span class="token punctuation">.</span><span class="token function">onRejected</span><span class="token punctuation">(</span>reason<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> REJECTED
+    <span class="token keyword">this</span><span class="token punctuation">.</span>value <span class="token operator">=</span> reason
+    <span class="token keyword">this</span><span class="token punctuation">.</span>callbacks<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>callbackObj <span class="token operator">=</span><span class="token operator">></span> callbackObj<span class="token punctuation">.</span><span class="token function">onRejected</span><span class="token punctuation">(</span>reason<span class="token punctuation">)</span><span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="Then-方法"><a href="#Then-方法" class="headerlink" title="Then 方法"></a><strong>Then 方法</strong></h2><p>一个 promise 必须提供一个 <code>then</code> 方法以访问其当前值、终值和据因。</p>
 <p>promise 的 <code>then</code> 方法接受两个参数：</p>
 <pre><code>promise.then(onFulfilled, onRejected)</code></pre><h3 id="参数可选"><a href="#参数可选" class="headerlink" title="参数可选"></a>参数可选</h3><p><code>onFulfilled</code> 和 <code>onRejected</code> 都是可选参数。</p>
@@ -642,45 +642,45 @@
 <span class="token keyword">const</span> resolvePromise <span class="token operator">=</span> <span class="token punctuation">(</span>promise2<span class="token punctuation">,</span> x<span class="token punctuation">,</span> resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
   <span class="token comment" spellcheck="true">// 2.3.1 promise2 === x => TypeError</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>promise2 <span class="token operator">===</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">reject</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">TypeError</span><span class="token punctuation">(</span><span class="token string">"Chaining cycle detected for promise #&lt;Promise>"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">reject</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">TypeError</span><span class="token punctuation">(</span><span class="token string">'Chaining cycle detected for promise #&lt;Promise>'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> x <span class="token operator">===</span> <span class="token string">"object"</span> <span class="token operator">&amp;&amp;</span> x <span class="token operator">!==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token keyword">typeof</span> x <span class="token operator">===</span> <span class="token string">"function"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> x <span class="token operator">===</span> <span class="token string">'object'</span> <span class="token operator">&amp;&amp;</span> x <span class="token operator">!==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token keyword">typeof</span> x <span class="token operator">===</span> <span class="token string">'function'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// x是promise</span>
-    <span class="token keyword">let</span> isCalled<span class="token punctuation">;</span>
+    <span class="token keyword">let</span> isCalled
     <span class="token keyword">try</span> <span class="token punctuation">{</span>
-      <span class="token keyword">let</span> then <span class="token operator">=</span> x<span class="token punctuation">.</span>then<span class="token punctuation">;</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> then <span class="token operator">===</span> <span class="token string">"function"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">let</span> then <span class="token operator">=</span> x<span class="token punctuation">.</span>then
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> then <span class="token operator">===</span> <span class="token string">'function'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 2.3.3.3</span>
         then<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>
           x<span class="token punctuation">,</span>
           y <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
             <span class="token comment" spellcheck="true">// 2.3.3.3.1</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>isCalled<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
-            isCalled <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-            <span class="token function">resolvePromise</span><span class="token punctuation">(</span>promise2<span class="token punctuation">,</span> y<span class="token punctuation">,</span> resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>isCalled<span class="token punctuation">)</span> <span class="token keyword">return</span>
+            isCalled <span class="token operator">=</span> <span class="token boolean">true</span>
+            <span class="token function">resolvePromise</span><span class="token punctuation">(</span>promise2<span class="token punctuation">,</span> y<span class="token punctuation">,</span> resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span>
           <span class="token punctuation">}</span><span class="token punctuation">,</span>
           r <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
             <span class="token comment" spellcheck="true">// 2.3.3.3.2</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>isCalled<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
-            isCalled <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-            <span class="token function">reject</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>isCalled<span class="token punctuation">)</span> <span class="token keyword">return</span>
+            isCalled <span class="token operator">=</span> <span class="token boolean">true</span>
+            <span class="token function">reject</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span>
           <span class="token punctuation">}</span>
-        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">)</span>
       <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
         <span class="token comment" spellcheck="true">// 2.3.3.4 x是对象</span>
-        <span class="token function">resolve</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">resolve</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
       <span class="token punctuation">}</span>
     <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
       <span class="token comment" spellcheck="true">// 2.3.3.2 x.then出错</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>isCalled<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
-      isCalled <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-      <span class="token function">reject</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>isCalled<span class="token punctuation">)</span> <span class="token keyword">return</span>
+      isCalled <span class="token operator">=</span> <span class="token boolean">true</span>
+      <span class="token function">reject</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span>
     <span class="token punctuation">}</span>
   <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// 2.3.4 x不是promise</span>
-    <span class="token function">resolve</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">resolve</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -706,7 +706,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://jaylin1011.gitee.io/2018/06/27/promises-aplus/">https://jaylin1011.gitee.io/2018/06/27/promises-aplus/</a>
+                    <a href="https://jaylin1011.gitee.io/2020/02/03/promises-aplus/">https://jaylin1011.gitee.io/2020/02/03/promises-aplus/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -919,23 +919,23 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/01/28/vue2-mvvm/">
+                <a href="/2020/02/15/vue-components/">
                     <div class="card-image">
                         
-                        <img src="/medias/img/vuejs/vuejs.jpg" class="responsive-img" alt="仿 Vue 版 MVVM 框架的简单实现">
+                        <img src="/medias/img/vuejs/vuejs.jpg" class="responsive-img" alt="Vue.js 组件间通信的 8 种方式">
                         
-                        <span class="card-title">仿 Vue 版 MVVM 框架的简单实现</span>
+                        <span class="card-title">Vue.js 组件间通信的 8 种方式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            仿 Vue 自定义封装 MVVM 框架 View。<br />基于数据劫持的数据代理和数据（双向）绑定。<br />指令解析和基于观察者模式的数据驱动视图。
+                            父子组件间的通信。<br />兄弟组件间的通信。<br />全局组件间的通信。
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-28
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-15
                         </span>
                         <span class="publish-author">
                             
@@ -971,30 +971,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/06/27/hello-world/">
+                <a href="/2020/01/28/base-css/">
                     <div class="card-image">
                         
-                        <img src="/medias/img/rice-roll.jpeg" class="responsive-img" alt="这是一条用于测试的肠粉">
+                        <img src="/medias/img/loading.gif" class="responsive-img" alt="封装基本公共样式工具类库">
                         
-                        <span class="card-title">这是一条用于测试的肠粉</span>
+                        <span class="card-title">封装基本公共样式工具类库</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这是本静态博客的第一条肠粉。<br />这是一条有纪念意义的肠粉。<br />纪念本人和子铭童鞋的早餐。
+                            自定义 base.css 的基本公共样式工具类库。<br /> 使用 CSS 预编译语言 SASS 封装。<br />使用 Bootstrap 风格的样式工具类。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2018-06-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Food/" class="post-category">
-                                    Food
+                            <a href="/categories/SASS/" class="post-category">
+                                    SASS
                                 </a>
                             
                             
@@ -1004,12 +1004,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Life/">
-                        <span class="chip bg-color">Life</span>
+                    <a href="/tags/CSS/">
+                        <span class="chip bg-color">CSS</span>
                     </a>
                     
-                    <a href="/tags/Food/">
-                        <span class="chip bg-color">Food</span>
+                    <a href="/tags/SASS/">
+                        <span class="chip bg-color">SASS</span>
                     </a>
                     
                 </div>
@@ -1238,8 +1238,8 @@ $(function () {
     <!-- 回到顶部按钮 -->
 <div id="backTop" class="top-scroll">
   <a class="btn-floating btn-large waves-effect waves-light" href="#!">
-    <!-- <i class="fas fa-arrow-up"></i> -->
-    <i class="iconfont icon-mao-copy"></i>
+    <i class="fas fa-arrow-up"></i>
+    <!-- <i class="iconfont icon-mao-copy"></i> -->
   </a>
 </div>
 
