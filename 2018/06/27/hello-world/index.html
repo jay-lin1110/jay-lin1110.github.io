@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="这是一条用于测试的肠粉, Jay Lin">
-    <meta name="description" content="这是一条神奇的肠粉，因为它具有特别的纪念意义。一来这是纪念本人和小铭同学一起吃过的正宗早餐。二来这是本博客测试的第一条肠粉。">
+    <meta name="description" content="这是本静态博客的第一条肠粉。&lt;br /&gt;这是一条有纪念意义的肠粉。&lt;br /&gt;纪念本人和子铭童鞋的早餐。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -53,7 +53,7 @@
       
       <i class="fas fa-home" style="zoom: 0.6;"></i>
       
-      <span>Home</span>
+      <span>首页</span>
     </a>
     
   </li>
@@ -97,7 +97,7 @@
       
       <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
       
-      <span>ReadMe</span>
+      <span>关于</span>
     </a>
     
   </li>
@@ -135,7 +135,7 @@
               
                 <i class="fa-fw fas fa-home"></i>
                 
-                    Home
+                    首页
             </a>
             
         </li>
@@ -179,7 +179,7 @@
               
                 <i class="fa-fw fas fa-user-circle"></i>
                 
-                    ReadMe
+                    关于
             </a>
             
         </li>
@@ -284,7 +284,7 @@
         let pwd = '42029ef215256f8fa9fedb53542ee6553eef76027b116f8fac5346211b1e473c';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入密码=。=！')).toString(CryptoJS.enc.Hex)) {
-                alert('密码错误，传送回主页=。=！');
+                alert('此地禁止访问！');
                 location.href = '/';
             }
         }
@@ -623,76 +623,24 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/01/28/vue2-mvvm/">
+                <a href="/2018/06/27/promises-aplus/">
                     <div class="card-image">
                         
-                        <img src="/medias/img/vuejs.jpg" class="responsive-img" alt="vue框架的简单实现">
+                        <img src="/medias/img/callback-hell.jpg" class="responsive-img" alt="基于 Promises/A+ 规范封装 PromiseA">
                         
-                        <span class="card-title">vue框架的简单实现</span>
+                        <span class="card-title">基于 Promises/A+ 规范封装 PromiseA</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            自定义封装实现vue2框架，实现MVVM功能，包括模板编译、指令解析和数据（双向）绑定的功能。
+                            基于 Promises/A+ 规范。<br />仿原生 Promise 自定义封装 PromiseA 类。<br />实现核心 then 方法和其他静态、实例方法。
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-28
+                            <i class="far fa-clock fa-fw icon-date"></i>2018-06-27
                         </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Vue/" class="post-category">
-                                    Vue
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/JavaScript/">
-                        <span class="chip bg-color">JavaScript</span>
-                    </a>
-                    
-                    <a href="/tags/Vue/">
-                        <span class="chip bg-color">Vue</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2018/06/27/promises-aplus/">
-                    <div class="card-image">
-                        
-                        <img src="/medias/img/callback-hell.jpg" class="responsive-img" alt="基于Promises/A+规范封装Promise">
-                        
-                        <span class="card-title">基于Promises/A+规范封装Promise</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            基于 Promises/A+规范自定义封装一个 PromiseA 类，实现 ECMAScript2015 中 Promise 的基本功能。
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2018-06-27
-                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -714,6 +662,59 @@
                     
                     <a href="/tags/ES2015/">
                         <span class="chip bg-color">ES2015</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
+            </div>
+            <div class="card">
+                <a href="/2018/06/27/hello-world/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/img/rice-roll.jpeg" class="responsive-img" alt="这是一条用于测试的肠粉">
+                        
+                        <span class="card-title">这是一条用于测试的肠粉</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            这是本静态博客的第一条肠粉。<br />这是一条有纪念意义的肠粉。<br />纪念本人和子铭童鞋的早餐。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2018-06-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Food/" class="post-category">
+                                    Food
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Life/">
+                        <span class="chip bg-color">Life</span>
+                    </a>
+                    
+                    <a href="/tags/Food/">
+                        <span class="chip bg-color">Food</span>
                     </a>
                     
                 </div>
@@ -747,10 +748,6 @@
 
 
 <!-- 代码块折行 -->
-
-<style type="text/css">
-code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
-</style>
 
     
 
@@ -793,7 +790,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     </div>
     <div class="col s12 m4 l4 social-link social-statis">
       
-    <a href="https://github.com/jaylin1011" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://gitee.com/jaylin1011" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
 

@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="vue框架的简单实现, Jay Lin">
-    <meta name="description" content="自定义封装实现vue2框架，实现MVVM功能，包括模板编译、指令解析和数据（双向）绑定的功能。">
+    <meta name="keywords" content="仿 Vue 版 MVVM 框架的简单实现, Jay Lin">
+    <meta name="description" content="仿 Vue 自定义封装 MVVM 框架 View。&lt;br /&gt;基于数据劫持的数据代理和数据（双向）绑定。&lt;br /&gt;指令解析和基于观察者模式的数据驱动视图。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>vue框架的简单实现 | Jay Lin</title>
+    <title>仿 Vue 版 MVVM 框架的简单实现 | Jay Lin</title>
     <link rel="icon" type="image/png" href="/medias/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -53,7 +53,7 @@
       
       <i class="fas fa-home" style="zoom: 0.6;"></i>
       
-      <span>Home</span>
+      <span>首页</span>
     </a>
     
   </li>
@@ -97,7 +97,7 @@
       
       <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
       
-      <span>ReadMe</span>
+      <span>关于</span>
     </a>
     
   </li>
@@ -135,7 +135,7 @@
               
                 <i class="fa-fw fas fa-home"></i>
                 
-                    Home
+                    首页
             </a>
             
         </li>
@@ -179,7 +179,7 @@
               
                 <i class="fa-fw fas fa-user-circle"></i>
                 
-                    ReadMe
+                    关于
             </a>
             
         </li>
@@ -284,7 +284,7 @@
         let pwd = '';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入密码=。=！')).toString(CryptoJS.enc.Hex)) {
-                alert('密码错误，传送回主页=。=！');
+                alert('此地禁止访问！');
                 location.href = '/';
             }
         }
@@ -294,12 +294,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/img/vuejs.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/img/vuejs/vuejs.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">vue框架的简单实现</h1>
+                    <h1 class="description center-align post-title">仿 Vue 版 MVVM 框架的简单实现</h1>
                 </div>
             </div>
         </div>
@@ -309,10 +309,105 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -325,8 +420,8 @@
                                 <span class="chip bg-color">JavaScript</span>
                             </a>
                         
-                            <a href="/tags/Vue/">
-                                <span class="chip bg-color">Vue</span>
+                            <a href="/tags/Vue-js/">
+                                <span class="chip bg-color">Vue.js</span>
                             </a>
                         
                     </div>
@@ -337,8 +432,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Vue/" class="post-category">
-                                Vue
+                            <a href="/categories/Vue-js/" class="post-category">
+                                Vue.js
                             </a>
                         
                     </div>
@@ -382,10 +477,10 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>自定义封装实现 vue2 框架，实现 MVVM 功能，包括模板编译、指令解析和数据（双向）绑定的功能。</p>
+                <p>自定义封装实现 View 框架，实现 MVVM 功能，包括模板编译、指令解析和数据（双向）绑定的功能。</p>
 <h1 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>MVVM 分别指 View，Model，View-Model，View 通过 View-Model 的 DOM Listeners 将事件绑定到 Model 上，而 Model 则通过 Data Bindings 来管理 View 中的数据，View-Model 从中起到一个连接桥的作用。</p>
 <p>在 MVVM 中 View 和 Model 是不可以直接进行通信的，它们之间存在这 ViewModel 这个中介充当着观察者的角色。当用户操作 View，ViewModel 感知到变化，然后通知 Model 发生相应改变，反之亦然。ViewModel 向上与视图层 View 进行双向数据绑定，向下与 Model 通过接口请求进行数据交互，起到承上启下的作用。</p>
-<p><img src="/medias/img/mvvm.jpg" alt=""></p>
+<p><img src="/medias/img/vuejs/mvvm.jpg" alt=""></p>
 <h2 id="概念详解"><a href="#概念详解" class="headerlink" title="概念详解"></a>概念详解</h2><ul>
 <li>M——Model 层（数据模型 | 状态）</li>
 </ul>
@@ -415,7 +510,7 @@
 <li>观察者模式</li>
 </ul>
 <p>使用了发布-订阅模式来实现数据驱动视图和数据（双向）绑定</p>
-<p><img src="/medias/img/vue-mvvm.jpg" alt=""></p>
+<p><img src="/medias/img/vuejs/vue-mvvm.jpg" alt=""></p>
 <h2 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h2><p>自定义封装实现<a href="https://gitee.com/jaylin1011/vue2-mvvm" target="_blank" rel="noopener">Vue2</a>框架，实现 MVVM 功能，包括模板编译、指令解析和数据（双向）绑定的功能。</p>
 <h3 id="Vue2"><a href="#Vue2" class="headerlink" title="Vue2"></a>Vue2</h3><p>Vue2 类是核心类之一，主要实现了 MVVM 初始化和数据代理的功能</p>
 <pre><code>class Vue2 {
@@ -674,8 +769,8 @@
                                     <span class="chip bg-color">JavaScript</span>
                                 </a>
                             
-                                <a href="/tags/Vue/">
-                                    <span class="chip bg-color">Vue</span>
+                                <a href="/tags/Vue-js/">
+                                    <span class="chip bg-color">Vue.js</span>
                                 </a>
                             
                         </div>
@@ -845,18 +940,18 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/01/28/base-css/">
+                <a href="/2020/01/28/webpack/">
                     <div class="card-image">
                         
-                        <img src="/medias/img/loading.gif" class="responsive-img" alt="封装基本公共样式工具库">
+                        <img src="/medias/img/webpack/webpack_02.jpg" class="responsive-img" alt="webpack 从入门到入土">
                         
-                        <span class="card-title">封装基本公共样式工具库</span>
+                        <span class="card-title">webpack 从入门到入土</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            使用SASS自定义封装一个类似于Bootstrap风格的基本可复用样式工具库,将常见的基本样式封装到一个统一的 base.css 文件中。
+                            webpack 基本使用。<br />webpack 进阶使用。<br />在 vue 项目中使用 webpack。
                         
                     </div>
                     <div class="publish-info">
@@ -867,8 +962,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/SASS/" class="post-category">
-                                    SASS
+                            <a href="/categories/webpack/" class="post-category">
+                                    webpack
                                 </a>
                             
                             
@@ -878,12 +973,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/CSS/">
-                        <span class="chip bg-color">CSS</span>
-                    </a>
-                    
-                    <a href="/tags/SASS/">
-                        <span class="chip bg-color">SASS</span>
+                    <a href="/tags/webpack/">
+                        <span class="chip bg-color">webpack</span>
                     </a>
                     
                 </div>
@@ -897,18 +988,18 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/06/27/hello-world/">
+                <a href="/2018/06/27/promises-aplus/">
                     <div class="card-image">
                         
-                        <img src="/medias/img/rice-roll.jpeg" class="responsive-img" alt="这是一条用于测试的肠粉">
+                        <img src="/medias/img/callback-hell.jpg" class="responsive-img" alt="基于 Promises/A+ 规范封装 PromiseA">
                         
-                        <span class="card-title">这是一条用于测试的肠粉</span>
+                        <span class="card-title">基于 Promises/A+ 规范封装 PromiseA</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这是一条神奇的肠粉，因为它具有特别的纪念意义。一来这是纪念本人和小铭同学一起吃过的正宗早餐。二来这是本博客测试的第一条肠粉。
+                            基于 Promises/A+ 规范。<br />仿原生 Promise 自定义封装 PromiseA 类。<br />实现核心 then 方法和其他静态、实例方法。
                         
                     </div>
                     <div class="publish-info">
@@ -919,8 +1010,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Food/" class="post-category">
-                                    Food
+                            <a href="/categories/ES2015/" class="post-category">
+                                    ES2015
                                 </a>
                             
                             
@@ -930,12 +1021,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Life/">
-                        <span class="chip bg-color">Life</span>
+                    <a href="/tags/JavaScript/">
+                        <span class="chip bg-color">JavaScript</span>
                     </a>
                     
-                    <a href="/tags/Food/">
-                        <span class="chip bg-color">Food</span>
+                    <a href="/tags/ES2015/">
+                        <span class="chip bg-color">ES2015</span>
                     </a>
                     
                 </div>
@@ -970,9 +1061,99 @@
 
 <!-- 代码块折行 -->
 
-<style type="text/css">
-code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
-</style>
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
 
     
 
@@ -1015,7 +1196,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
     </div>
     <div class="col s12 m4 l4 social-link social-statis">
       
-    <a href="https://github.com/jaylin1011" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://gitee.com/jaylin1011" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
 
