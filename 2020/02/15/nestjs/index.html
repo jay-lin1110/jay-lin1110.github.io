@@ -517,7 +517,7 @@ nest g s auth<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
-<p>Tips：这里使用 <code>@typegoose/typegoose</code> 包注入用户模型提供用户服务，关于 <code>MongoDB</code> 模块的详细内容，请传送 <a href="https://jaylin1011.gitee.io/readme/nestjs/lib-mongo.html" target="_blank" rel="noopener">MongoDB</a> 章节。此外，用户密码属于密码数据，需要额外加密处理，可以通过散列或 md5 等加密方式加密，并通过 <code>mongoose</code> 的模型设计加密码字段设置为非必要读取字段，在需要密码的时候在取出密码字段。</p>
+<p>Tips：这里使用 <code>@typegoose/typegoose</code> 包注入用户模型提供用户服务，关于 <code>MongoDB</code> 模块的详细内容，请传送 <a href="https://jay-lin1110.gitee.io/readme/nestjs/lib-mongo.html">MongoDB</a> 章节。此外，用户密码属于密码数据，需要额外加密处理，可以通过散列或 md5 等加密方式加密，并通过 <code>mongoose</code> 的模型设计加密码字段设置为非必要读取字段，在需要密码的时候在取出密码字段。</p>
 </blockquote>
 <h3 id="实现本地身份认证策略"><a href="#实现本地身份认证策略" class="headerlink" title="实现本地身份认证策略"></a>实现本地身份认证策略</h3><p>在 <code>auth</code> 文件夹下新建一个本地策略实现文件 <code>local.strategy.ts</code></p>
 <pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// local.strategy.ts</span>
@@ -548,26 +548,26 @@ nest g s auth<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="配置本地身份认证模块"><a href="#配置本地身份认证模块" class="headerlink" title="配置本地身份认证模块"></a>配置本地身份认证模块</h3><p>在 <code>auth.module.ts</code> 中导入 <code>passport</code> 模块，提供本地身份认证策略。</p>
 <pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// auth.module.ts</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Module <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@nestjs/common'</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> AuthController <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./auth.controller'</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> PassportModule <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@nestjs/passport'</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> LocalStrategy <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./local.strategy'</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> AuthService <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./auth.service'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Module <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@nestjs/common'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> AuthController <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./auth.controller'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> PassportModule <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@nestjs/passport'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> LocalStrategy <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./local.strategy'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> AuthService <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./auth.service'</span><span class="token punctuation">;</span>
 
 @<span class="token function">Module</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   controllers<span class="token punctuation">:</span> <span class="token punctuation">[</span>AuthController<span class="token punctuation">]</span><span class="token punctuation">,</span>
   imports<span class="token punctuation">:</span> <span class="token punctuation">[</span>PassportModule<span class="token punctuation">]</span><span class="token punctuation">,</span>
-  providers<span class="token punctuation">:</span> <span class="token punctuation">[</span>AuthService<span class="token punctuation">,</span> LocalStrategy<span class="token punctuation">]</span>
+  providers<span class="token punctuation">:</span> <span class="token punctuation">[</span>AuthService<span class="token punctuation">,</span> LocalStrategy<span class="token punctuation">]</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 <span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">AuthModule</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="构建授权登录路由守卫"><a href="#构建授权登录路由守卫" class="headerlink" title="构建授权登录路由守卫"></a>构建授权登录路由守卫</h3><p>授权守卫在每个中间件之后执行，但在任何拦截器或管道之前执行，根据运行时出现的某些条件（例如权限，角色，访问控 p 制列表等）来确定给定的请求是否由路由处理程序处理。</p>
 <p>在需要使用本地身份认证的控制器中使用授权登陆路由守卫，这里 <code>auth.controller.ts</code> 的用户登录为例：</p>
 <pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// auth.controller.ts</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Controller<span class="token punctuation">,</span> Post<span class="token punctuation">,</span> UseGuards<span class="token punctuation">,</span> Injectable <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@nestjs/common'</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> InjectModel <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'nestjs-typegoose'</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> ReturnModelType<span class="token punctuation">,</span> DocumentType <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@typegoose/typegoose'</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> AuthGuard <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@nestjs/passport'</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> User <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@app/mongo/models/user.model'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Controller<span class="token punctuation">,</span> Post<span class="token punctuation">,</span> UseGuards<span class="token punctuation">,</span> Injectable <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@nestjs/common'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> InjectModel <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'nestjs-typegoose'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> ReturnModelType<span class="token punctuation">,</span> DocumentType <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@typegoose/typegoose'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> AuthGuard <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@nestjs/passport'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> User <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@app/mongo/models/user.model'</span><span class="token punctuation">;</span>
 
 @<span class="token function">Injectable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 @<span class="token function">Controller</span><span class="token punctuation">(</span><span class="token string">'auth'</span><span class="token punctuation">)</span>
@@ -578,8 +578,8 @@ nest g s auth<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
   @<span class="token function">UseGuards</span><span class="token punctuation">(</span><span class="token function">AuthGuard</span><span class="token punctuation">(</span><span class="token string">'local-login'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
   <span class="token keyword">async</span> <span class="token function">login</span><span class="token punctuation">(</span>@<span class="token function">Body</span><span class="token punctuation">(</span><span class="token punctuation">)</span> body<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token punctuation">{</span>
-      token<span class="token punctuation">:</span> <span class="token string">'这里将在下一步中使用 jwt 认证策略生成 token返回作为用户身份令牌'</span>
-    <span class="token punctuation">}</span>
+      token<span class="token punctuation">:</span> <span class="token string">'这里将在下一步中使用 jwt 认证策略生成 token返回作为用户身份令牌'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="JWT-认证"><a href="#JWT-认证" class="headerlink" title="JWT 认证"></a>JWT 认证</h2><h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">npm</span> i @nestjs/jwt passport-jwt
@@ -589,29 +589,29 @@ nest g s auth<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
 # JWT 密钥
 JWT_SECRET<span class="token operator">=</span>这里是你配置的密钥<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <blockquote>
-<p>Tips：关于配置和环境变量的详细内容，请传送<a href="https://jaylin1011.gitee.io/readme/nestjs/lib-config.html" target="_blank" rel="noopener">配置和环境变量</a>章节。</p>
+<p>Tips：关于配置和环境变量的详细内容，请传送<a href="https://jay-lin1110.gitee.io/readme/nestjs/lib-config.html">配置和环境变量</a>章节。</p>
 </blockquote>
 <h3 id="库共享-JWT-模块"><a href="#库共享-JWT-模块" class="headerlink" title="库共享 JWT 模块"></a>库共享 JWT 模块</h3><p>在库 <code>common.module.ts</code> 中配置 <code>JWT</code> 全局共享模块，结合环境变量使用 <code>JWT</code> 密钥</p>
 <pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// libs/common.module.ts</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Module<span class="token punctuation">,</span> Global <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@nestjs/common'</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> CommonService <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./common.service'</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> ConfigModule <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@nestjs/config'</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> JwtModule <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@nestjs/jwt'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Module<span class="token punctuation">,</span> Global <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@nestjs/common'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> CommonService <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./common.service'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> ConfigModule <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@nestjs/config'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> JwtModule <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@nestjs/jwt'</span><span class="token punctuation">;</span>
 
 @<span class="token function">Global</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 @<span class="token function">Module</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   imports<span class="token punctuation">:</span> <span class="token punctuation">[</span>
     ConfigModule<span class="token punctuation">.</span><span class="token function">forRoot</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      isGlobal<span class="token punctuation">:</span> <span class="token boolean">true</span>
+      isGlobal<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
     JwtModule<span class="token punctuation">.</span><span class="token function">registerAsync</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
       useFactory<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
-        secret<span class="token punctuation">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span>JWT_SECRET
-      <span class="token punctuation">}</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        secret<span class="token punctuation">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span>JWT_SECRET<span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
   <span class="token punctuation">]</span><span class="token punctuation">,</span>
   providers<span class="token punctuation">:</span> <span class="token punctuation">[</span>CommonService<span class="token punctuation">]</span><span class="token punctuation">,</span>
-  exports<span class="token punctuation">:</span> <span class="token punctuation">[</span>CommonService<span class="token punctuation">,</span> JwtModule<span class="token punctuation">]</span>
+  exports<span class="token punctuation">:</span> <span class="token punctuation">[</span>CommonService<span class="token punctuation">,</span> JwtModule<span class="token punctuation">]</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 <span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">CommonModule</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="JWT-认证服务"><a href="#JWT-认证服务" class="headerlink" title="JWT 认证服务"></a>JWT 认证服务</h3><pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// auth.service.ts</span>
@@ -666,18 +666,18 @@ JWT_SECRET<span class="token operator">=</span>这里是你配置的密钥<span 
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="配置-JWT-认证策略"><a href="#配置-JWT-认证策略" class="headerlink" title="配置 JWT 认证策略"></a>配置 JWT 认证策略</h3><p>在 <code>auth.module.ts</code> 中导入 <code>passport</code> 模块，提供 <code>JWT</code> 认证策略。</p>
 <pre class="line-numbers language-js"><code class="language-js"><span class="token comment" spellcheck="true">// auth.module.ts</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Module <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@nestjs/common'</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> AuthController <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./auth.controller'</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> AuthService <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./auth.service'</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> PassportModule <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@nestjs/passport'</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> LocalStrategy <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./local.strategy'</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> JwtStrategy <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./jwt.strategy'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Module <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@nestjs/common'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> AuthController <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./auth.controller'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> AuthService <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./auth.service'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> PassportModule <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@nestjs/passport'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> LocalStrategy <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./local.strategy'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> JwtStrategy <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./jwt.strategy'</span><span class="token punctuation">;</span>
 
 @<span class="token function">Module</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   controllers<span class="token punctuation">:</span> <span class="token punctuation">[</span>AuthController<span class="token punctuation">]</span><span class="token punctuation">,</span>
   imports<span class="token punctuation">:</span> <span class="token punctuation">[</span>PassportModule<span class="token punctuation">]</span><span class="token punctuation">,</span>
   providers<span class="token punctuation">:</span> <span class="token punctuation">[</span>AuthService<span class="token punctuation">,</span> LocalStrategy<span class="token punctuation">,</span> JwtStrategy<span class="token punctuation">]</span><span class="token punctuation">,</span>
-  exports<span class="token punctuation">:</span> <span class="token punctuation">[</span>JwtStrategy<span class="token punctuation">]</span>
+  exports<span class="token punctuation">:</span> <span class="token punctuation">[</span>JwtStrategy<span class="token punctuation">]</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 <span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">AuthModule</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="构建授权访问路由守卫"><a href="#构建授权访问路由守卫" class="headerlink" title="构建授权访问路由守卫"></a>构建授权访问路由守卫</h3><p>用户登录成功后，使用 <code>JWT</code> 验证策略根据密钥和部分非敏感用户信息签署生成令牌 <code>token</code>，每次有效请求都必须携带该令牌，以此保护我们的接口。</p>
